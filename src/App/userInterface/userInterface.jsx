@@ -1,14 +1,15 @@
 import React from "react";
-import "./styles.css";
+import "./styles.scss";
 
 function UserInterface() {
 
     return(
         <div>
-        <h1>Please enter the city name:</h1>
-        <label for="cityName">City:</label>
-        <input type="text" id="cityName" name="cityName"/><br/><br/>
-        <input type="submit" value="Submit"/>
+            <h1 className="titleText">Please enter the city to find the weather</h1>
+        <div class="form__group field">
+            <input type="input" class="form__field" placeholder="CityName" name="Cityname" id='Cityname' required />
+            <label for="Cityname" class="form__label">Input City</label>
+        </div>
         </div>
     );
 }

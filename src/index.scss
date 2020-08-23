@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.date, .location {
+.date, .location,.weather{
   color:white;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 25px;
@@ -20,6 +20,30 @@ code {
 }
 .location{
   font-size:35px;
+  font-weight: 500;
+  text-shadow: 3px 3px rgba(50,50,70,0.5);
+  padding-top: 40px;
+}
+.temperture{
+  color:white;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  position: relative;
+  display: inline-block;
+  margin:30px auto;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 16px;
+
+  padding:15px 25px;
+  font-weight: 900;
+  font-size:90px;
+
+  text-shadow: 3px 6px rgba(50,50,70,0.5);
+  box-shadow: 3px 6px rgba(0,0,0,0.2);
+}
+.weather{
+  font-size: 40px;
+  font-weight: 700;
+  text-shadow: 3px 3px rgba(50,50,70,0.5);
 }
 main{
   height: 667px;
@@ -30,7 +54,7 @@ main{
   background-image: url('./App/assets/morning.jpg');
   background-size: cover;
   background-position: bottom;
-  transition: 0.4 ease-out;
+  transition: 0.4 ease;
 }
 .app.night{
   background-image: url('./App/assets/night.jpg');
@@ -41,8 +65,88 @@ main{
 .app.evening{
   background-image: url('./App/assets/bg.jpg');
 }
-.main{
+main{
   min-height: 100vh;
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.75));
   padding:25px;
+}
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+
+.titleText{
+  color:rgb(230, 230, 236);
+  font-family: cursive;
+}
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 125%;
+  border: 0;
+  border-bottom: 2px solid $gray;
+  outline: 0;
+  font-size: 1.3rem;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: $gray;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $primary;
+    font-weight:700;    
+  }
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $primary,$secondary);
+  border-image-slice: 1;
+}
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+}
+body {
+  font-family: 'Poppins', sans-serif; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 1.5rem;
+  background-color:#222222;
+}
+.information{
+  text-align: center;
 }

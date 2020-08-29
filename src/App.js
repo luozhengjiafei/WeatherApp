@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import "./index.scss";
+import "./Icon.jsx";
+import WeatherIcon from './Icon.jsx';
 
 const api = {
   key: "88e35fa22188bc3f2d579571d989e2e4",
@@ -42,7 +44,10 @@ function App() {
       <div className="location">{weather.name},{weather.sys.country}</div>
       <div className="date">{new Date().toDateString()}</div>
       <div className="temperture">{Math.round(weather.main.temp)}°c</div>
-      <div className = "weatherIcon" />
+        <WeatherIcon status = 
+          {weather.text}
+
+          />
       <div className="weather">{weather.weather[0].main}</div>
         </div>
       ) :('')}

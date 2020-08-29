@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./index.scss";
 
 const api = {
+  key: "88e35fa22188bc3f2d579571d989e2e4",
   base: "https://api.openweathermap.org/data/2.5/"
 }
 
@@ -41,6 +42,7 @@ function App() {
       <div className="location">{weather.name},{weather.sys.country}</div>
       <div className="date">{new Date().toDateString()}</div>
       <div className="temperture">{Math.round(weather.main.temp)}°c</div>
+      <div className = "weatherIcon" />
       <div className="weather">{weather.weather[0].main}</div>
         </div>
       ) :('')}

@@ -45,6 +45,9 @@ code {
   font-weight: 700;
   text-shadow: 3px 3px rgba(50,50,70,0.5);
 }
+.weather.temp{
+  font-size:25px;
+}
 main{
   height: 667px;
   width: 375px;
@@ -149,20 +152,4 @@ body {
 }
 .information{
   text-align: center;
-}
-
-.weatherIcon.sunny{
-  background-image: url();
-}
-.weatherIcon.rain {
-  background-image: url();
-}
-.weatherIcon.cloud {
-  background-image: url();
-}
-.weatherIcon.snow {
-  background-image: url();
-}
-.weatherIcon {
-  background-image: url();
 }

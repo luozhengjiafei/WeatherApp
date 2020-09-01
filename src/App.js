@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import "./index.scss";
-import "./Icon.jsx";
-import WeatherIcon from './Icon.jsx';
 
 const api = {
   key: "88e35fa22188bc3f2d579571d989e2e4",
-  base: "https://api.openweathermap.org/data/2.5/"
+  base: "https://api.openweathermap.org/data/2.5/",
+  icon: "http://openweathermap.org/img/wn/"
 }
 
 function App() {
@@ -26,7 +25,7 @@ function App() {
   return (
     <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app evening' : 'app') : 'app'}>
     <main>
-        <div class="form__group field">
+        <div className="form__group field">
           <input
             type="input"
             className="form__field"
@@ -37,18 +36,20 @@ function App() {
             value={query}
             onKeyPress={search}
           />
-          <label for="Cityname" class="form__label">Search...</label>
+          <label htmlFor="Cityname" className="form__label">Search...</label>
         </div>
       {(typeof weather.main != "undefined") ? (
         <div className ="information">
-      <div className="location">{weather.name},{weather.sys.country}</div>
+      <div className="location">{weather.name}, {weather.sys.country}</div>
       <div className="date">{new Date().toDateString()}</div>
       <div className="temperture">{Math.round(weather.main.temp)}°c</div>
-        <WeatherIcon status = 
-          {weather.text}
-
-          />
-      <div className="weather">{weather.weather[0].main}</div>
+      <div className = "weatherIcon">
+      <img alt="Qries" src={api.icon + weather.weather[0].icon + "@2x.png"}/>
+      </div>
+      {console.log(weather)}
+            <div className="weather temp">Lowest: {Math.round(weather.main.temp_min)}°C</div>
+            <div className="weather temp">Highest: {Math.round(weather.main.temp_max)}°C</div>
+      <div className="weather">{weather.weather[0].description}</div>
         </div>
       ) :('')}
     </main>
